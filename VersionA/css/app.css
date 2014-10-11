@@ -1,0 +1,151 @@
+body {
+    font: 12px arial, helvetica, sans-serif;
+}
+h2 {
+    font-size: 16px;
+}
+table {
+    margin: 20px 0;
+    border-collapse:collapse;
+    width: 100%
+}
+th,td {
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+#NewRecord{
+	width:49%;
+	float: left;
+}
+#SortRecords{
+	width: 49%;
+	float: right;
+	text-align: right;
+	vertical-align: middle;
+}
+
+/*For the 'edit'/'new' modal*/
+.FormItem input, label {
+    display:block;
+}
+.FormItem input{
+	margin-bottom: 5px;
+	margin-top: -2px;
+}
+.FormItem {
+	float:left;
+	margin-right: 5px;
+}
+.FormBlock {
+	width:100%;
+}
+
+/* Modal Stuff */
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity: 0.3;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 50%; /* Default */
+
+  /* Center the dialog */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  box-shadow: 4px 4px 80px #000;
+  /* Round the corners */
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.ng-modal-dialog-content {
+  padding:10px;
+  text-align: left;
+}
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
+}
+
+/* Target second to last column */
+th:nth-last-child(1),td:nth-last-child(1){ 
+	width:80px;
+}
+
+/*This is meant to deal with a shrinking widow width*/
+@media 
+	only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px)  {
+	/*Target second to last column*/
+	th:nth-last-child(2),td:nth-last-child(2){ 
+	  display:none;
+	}
+}
+@media 
+	only screen and (max-width: 720px),
+	(min-device-width: 728px) and (max-device-width: 984px)  {
+	/*Target third to last column*/
+	th:nth-last-child(3),td:nth-last-child(3){ 
+	  display:none;
+	}
+}
+@media 
+	only screen and (max-width: 680px),
+	(min-device-width: 688px) and (max-device-width: 944px)  {
+	/*Target forth to last column*/
+	th:nth-last-child(4),td:nth-last-child(4){ 
+	  display:none;
+	}
+}
+@media 
+	only screen and (max-width: 640px),
+	(min-device-width: 648px) and (max-device-width: 904px)  {
+	/*Target fifth to last column*/
+	th:nth-last-child(5),td:nth-last-child(5){ 
+	  display:none;
+	}
+}
+@media 
+	only screen and (max-width: 600px),
+	(min-device-width: 608px) and (max-device-width: 864px)  {
+	/*Target sixth to last column*/
+	th:nth-last-child(6),td:nth-last-child(6){ 
+	  display:none;
+	}
+}
+@media 
+	only screen and (max-width: 560px),
+	(min-device-width: 568px) and (max-device-width: 824px)  {
+	/*Target seventh to last column*/
+	th:nth-last-child(7),td:nth-last-child(7){ 
+	  display:none;
+	}
+}
+@media 
+	only screen and (max-width: 520px),
+	(min-device-width: 528px) and (max-device-width: 784px)  {
+	/*Target eighth to last column*/
+	th:nth-last-child(8),td:nth-last-child(8){ 
+	  display:none;
+	}
+}

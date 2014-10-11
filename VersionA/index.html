@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/sweet-alert.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp">
+	<div ng-controller="RecordsCtrl">
+        <h2>People:</h2>
+        <!-- Universal Actions -->
+        <div id="NewRecord">
+        	<span ng-click="newRecord();">
+	        	<img src="img/gloss/AddPerson-32x32.png" alt="Add Person">
+	        	New Record
+	        </span>
+        </div>
+        <div id="SortRecords">
+        	<img src="img/gloss/Find-32x32.png" alt="Find a record">
+        	<input type="text" ng-model="search.$">
+        </div>
+        <!-- The Records -->
+		<table cellspacing="0">
+			<thead>
+				<tr class="first">
+					<th class="first" ng-click="changeSorting('fname')">First Name</th>
+					<th ng-click="changeSorting('lname')">Last Name</th>
+					<th ng-click="changeSorting('address')">Address</th>
+					<th ng-click="changeSorting('city')">City</th>
+					<th ng-click="changeSorting('state')">State</th>
+					<th ng-click="changeSorting('zip')">Zip</th>
+					<th ng-click="changeSorting('occupation')">Occupation</th>
+					<th ng-click="changeSorting('email')">Email Address</th>
+					<th ng-click="changeSorting('website')">Website Address</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="record in records|orderBy:sort.column:sort.descending|filter:search:strict| startFrom:currentPage*pageSize | limitTo:pageSize">
+					<td class="first">{{record.fname}}</td>
+					<td>{{record.lname}}</td>
+					<td>{{record.address}}</td>
+					<td>{{record.city}}</td>
+					<td>{{record.state}}</td>
+					<td>{{record.zip}}</td>
+					<td>{{record.occupation}}</td>
+					<td>{{record.email}}</td>
+					<td>{{record.website}}</td>
+					<td class="last">
+						<img src="img/gloss/trash32x32.png" alt="Delete" ng-click="deleteRecord(record.index);">
+						<img src="img/gloss/notepad-32x32.png" alt="Edit" ng-click="editRecord(record);">
+					</td>
+				</tr>
+			</tbody>
+        </table>
+        <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+	        Previous
+	    </button>
+	    {{currentPage+1}}/{{numberOfPages()}}
+	    <button ng-disabled="currentPage >= records.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+	        Next
+	    </button>
+
+	    <!-- START: 'New Record'/'Edit Record' modal dialog -->
+		<modal-dialog show='modalShown' width='80%' height='80%'>
+			<h2 ng-show="targetRecord.id>0">Edit Record</h2>
+			<h2 ng-show="targetRecord.id<0">New Record</h2>
+			<form id="modalForm">
+				<div class="FormBlock">
+					<div class="FormItem">
+						<label for="fname">First Name</label>
+						<input name="fname" type="text" size="20" value="{{targetRecord.fname}}" placeholder="First Name">
+					</div>
+					<div class="FormItem">
+						<label for="lname">Last Name</label>
+						<input name="lname" type="text" size="20" value="{{targetRecord.lname}}" placeholder="Last Name">
+					</div>
+					<br style="clear:both;" />
+				</div>
+
+				<div class="FormBlock">
+					<div class="FormItem">
+						<label for="address">Address</label>
+						<input name="address" type="text" size="45" value="{{targetRecord.address}}" placeholder="Address">
+					</div>
+					<br style="clear:both;" />
+					<div class="FormItem">
+						<label for="city">City</label>
+						<input name="city" type="text" size="20" value="{{targetRecord.city}}" placeholder="City">
+					</div>
+					<div class="FormItem">
+						<label for="state">State</label>
+						<input name="state" type="text" size="20" value="{{targetRecord.state}}" placeholder="State">
+					</div>
+					<div class="FormItem">
+						<label for="zip">Zip</label>
+						<input name="zip" type="text" size="5" value="{{targetRecord.zip}}" placeholder="Zip">
+					</div>
+					<br style="clear:both;" />
+				</div>
+				
+				<div class="FormBlock">
+					<div class="FormItem">
+						<label for="occupation">Occupation</label>
+						<input name="occupation" type="text" size="20" value="{{targetRecord.occupation}}" placeholder="Occupation">
+					</div>
+					<div class="FormItem">
+						<label for="email">Email</label>
+						<input name="email" type="text" size="20" value="{{targetRecord.email}}" placeholder="Email">
+					</div>
+					<div class="FormItem">
+						<label for="website">Website</label>
+						<input name="website" type="text" size="20" value="{{targetRecord.website}}" placeholder="Website">
+					</div>
+					<br style="clear:both;" />
+				</div>
+				<input type="hidden" name="index" value="{{targetRecord.index}}">
+				<button ng-click="saveRecord();">Save</button>
+				<button ng-click="closeModal();">Cancel</button>
+			</form>
+	    </modal-dialog>
+	    <!-- END: 'New Record'/'Edit Record' modal dialog -->
+	</div>
+</div>
+
+</body>
+</html>

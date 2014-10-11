@@ -120,7 +120,17 @@ myApp.controller('RecordsCtrl', function($scope, $http){
             if(form[i].name)
                 record[form[i].name] = form[i].value;
         }
-        console.table(record);
+
+        // Is it a preexisting record?
+        if (record.index !== ''){
+            // Process a record 'edit'
+            $scope.records[Number(record.index)] = record;
+        }else{
+            // Process a record 'creation'
+            record.index = $scope.records.length;
+            $scope.records.push(record);
+        }
+        $scope.closeModal();
     };
 
     $scope.resetModal = function(){

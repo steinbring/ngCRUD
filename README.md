@@ -16,4 +16,5 @@ I have been trying to get good at AngularJS for a while now.  While I was at my 
 I leveraged a few projects in this:
 
 https://github.com/btford/angular-modal
+
 http://tristanedwards.me/sweetalert

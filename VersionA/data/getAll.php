@@ -9,7 +9,11 @@
     			'zip'=>'53201',
     			'occupation'=>'Programmer',
     			'email'=>'joe@steinbring.net',
-    			'website'=>'http://steinbring.net'
+    			'website'=>'http://steinbring.net',
+                'DateOfBirth'=>'02/14/1978',
+                'HomePhone'=>'414-555-1029',
+                'NumberOfChildren'=>0,
+                'HairColor'=>'Brown'
     		 ),
     	array(	'id'=>2,
     			'fname'=>'Fred', 
@@ -20,7 +24,11 @@
     			'zip'=>'87714',
     			'occupation'=>'Carpenter',
     			'email'=>'fjones@gmail.com',
-    			'website'=>'http://fredjones.com'
+    			'website'=>'http://fredjones.com',
+                'DateOfBirth'=>'09/21/1981',
+                'HomePhone'=>'920-555-8203',
+                'NumberOfChildren'=>3,
+                'HairColor'=>'Black'                
     		 ),
     	array(	'id'=>3,
     			'fname'=>'Steve', 
@@ -31,7 +39,11 @@
     			'zip'=>'53209',
     			'occupation'=>'Barista',
     			'email'=>'steve@smith.org',
-    			'website'=>'http://smith.org'
+    			'website'=>'http://smith.org',
+                'DateOfBirth'=>'01/23/1971',
+                'HomePhone'=>'807-555-1203',
+                'NumberOfChildren'=>9,
+                'HairColor'=>'White'
     		 ),
     	array(	'id'=>4,
     			'fname'=>'Liz', 
@@ -42,7 +54,11 @@
     			'zip'=>'53211',
     			'occupation'=>'Radio Producer',
     			'email'=>'liz.smith@gmail.com',
-    			'website'=>''
+    			'website'=>'',
+                'DateOfBirth'=>'12/07/1953',
+                'HomePhone'=>'414-555-8394',
+                'NumberOfChildren'=>0,
+                'HairColor'=>'Black'
     		 ),
     	array(	'id'=>5,
     			'fname'=>'Mark', 
@@ -53,7 +69,11 @@
     			'zip'=>'53209',
     			'occupation'=>'Fry Cook',
     			'email'=>'markp@gmail.com',
-    			'website'=>''
+    			'website'=>'',
+                'DateOfBirth'=>'09/26/1965',
+                'HomePhone'=>'920-555-2039',
+                'NumberOfChildren'=>14,
+                'HairColor'=>'Grey'
     		 ),
     	array(	'id'=>6,
     			'fname'=>'Anne', 
@@ -64,7 +84,11 @@
     			'zip'=>'87714',
     			'occupation'=>'Bank President',
     			'email'=>'AnneFM@yahoo.com',
-    			'website'=>''
+    			'website'=>'',
+                'DateOfBirth'=>'03/12/1949',
+                'HomePhone'=>'575-555-9090',
+                'NumberOfChildren'=>2,
+                'HairColor'=>'White'
     		 ),
     	array(	'id'=>7,
     			'fname'=>'Tom', 
@@ -75,8 +99,27 @@
     			'zip'=>'87714',
     			'occupation'=>'Postmaster',
     			'email'=>'TomM@yahoo.com',
-    			'website'=>''
-    		 )
+    			'website'=>'',
+                'DateOfBirth'=>'06/16/1984',
+                'HomePhone'=>'343-555-6767',
+                'NumberOfChildren'=>0,
+                'HairColor'=>'Brown'
+    		 ),
+        array(  'id'=>8,
+                'fname'=>'Beth', 
+                'lname'=>'Klien',
+                'address'=>'1403 N Oak Rd', 
+                'city'=>'Bonifay',
+                'state'=>'Florida',
+                'zip'=>'32425',
+                'occupation'=>'Mechanic',
+                'email'=>'bethk09@yahoo.com',
+                'website'=>'',
+                'DateOfBirth'=>'01/18/1982',
+                'HomePhone'=>'243-555-1099',
+                'NumberOfChildren'=>0,
+                'HairColor'=>'Red'
+             )
     );
 
     echo json_encode($arr);

@@ -85,19 +85,21 @@ myApp.controller('RecordsCtrl', function($scope, $http){
 		  type: "warning",
 		  showCancelButton: true,
 		  confirmButtonColor: "#DD6B55",
-		  confirmButtonText: "Yes, delete it"
+		  confirmButtonText: "Yes, delete it",
+          closeOnConfirm: false
 		}, 
 		function(){
 			// Delete the item from the database
-			$http.get('data/deleteItem.php?id='+$scope.records[id].id).success(function (data) {
-				// Was the DB delete a success?
-				if (data) {
-					// Delete the item from the local array variable
-					$scope.records.splice(id, 1);
-				}
-				else
-					alert('Error!');
-			});
+            $http.get('data/deleteItem.php?id='+$scope.records[id].id).success(function (data) {
+                // Was the DB delete a success?
+                if (data.message === 'success') {
+                    // Delete the item from the local array variable
+                    $scope.records.splice(id, 1);
+                }else{
+                    alert(data.message);
+                }
+
+            });
 		});
     };
     

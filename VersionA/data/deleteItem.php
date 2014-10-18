@@ -2,7 +2,7 @@
 	// This is where you would put your DB queries
 
 	// Did the query succeed? (hardcoded for testing)
-	$success = 0;
+	$success = 1;
 
 	// Return a response
 	if ($success){

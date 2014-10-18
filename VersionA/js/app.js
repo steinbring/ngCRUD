@@ -92,13 +92,13 @@ myApp.controller('RecordsCtrl', function($scope, $http){
 			// Delete the item from the database
             $http.get('data/deleteItem.php?id='+$scope.records[id].id).success(function (data) {
                 // Was the DB delete a success?
-                if (data.message === 'success') {
-                    // Delete the item from the local array variable
-                    $scope.records.splice(id, 1);
-                }else{
-                    alert(data.message);
-                }
-
+                // if (data.message === 'success') {
+                //     // Delete the item from the local array variable
+                //     $scope.records.splice(id, 1);
+                // }else{
+                //     alert(data.message);
+                // }
+                $scope.records.splice(id, 1);
             });
 		});
     };
